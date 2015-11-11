@@ -25,9 +25,20 @@ describe('format', function () {
         assert(validate('custom://my-site/long/$cr@mbl3d/u_r-l?with=query%20string'));
         assert(validate('//no-scheme-here'));
 
-        assert(!validate(''));
-        assert(!validate('google'));
-        assert(!validate('/google'));
+        // examples from RFC3986 spec
+        // http://xml2rfc.ietf.org/public/rfc/html/rfc3986.html#examples
+        assert(validate('ftp://ftp.is.co.za/rfc/rfc1808.txt'));
+        assert(validate('http://www.ietf.org/rfc/rfc2396.txt'));
+        assert(validate('ldap://[2001:db8::7]/c=GB?objectClass?one'));
+        assert(validate('mailto:John.Doe@example.com'));
+        assert(validate('news:comp.infosystems.www.servers.unix'));
+        assert(validate('tel:+1-816-555-1212'));
+        assert(validate('telnet://192.0.2.16:80/'));
+        assert(validate('urn:oasis:names:specification:docbook:dtd:xml:4.1.;2'));
+
+        assert(validate(''));
+        assert(validate('google'));
+        assert(validate('/google'));
         assert(!validate('://google'));
         assert(!validate('http://google.com/no space allowed'));
     });
