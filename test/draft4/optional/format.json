@@ -5,7 +5,12 @@
         "tests": [
             {
                 "description": "a valid date-time string",
-                "data": "1963-06-19T08:30:06.283185Z",
+                "data": "1963-06-19T08:30:06.285Z",
+                "valid": true
+            },
+            {
+                "description": "a valid date-time string with no milliseconds",
+                "data": "1963-06-19T08:30:06Z",
                 "valid": true
             },
             {
